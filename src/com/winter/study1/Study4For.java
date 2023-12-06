@@ -34,7 +34,29 @@ public class Study4For {
 		}
 		
 		if(check) {
-			System.out.println("게임시작");
+			int level=1;
+			int gold=0;
+			
+			for(;level<15;level++) {
+				
+				if(level%5==0) {
+					gold = gold+level/5*1000;
+				}
+				
+//				if(level==10) {
+//					gold = gold+2000;
+//				}
+				
+				for(int m=0;m<level*3;m++) {
+					System.out.println(m+1+"사냥 성공");
+				}
+				
+				System.out.println("축 레벨업 : "+(level+1));
+			}
+			gold=gold+3000;
+			System.out.println("최종 레벨 : "+level);
+			System.out.println("최종 Gold : "+gold);
+			
 		}
 		
 		
