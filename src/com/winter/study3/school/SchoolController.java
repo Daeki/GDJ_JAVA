@@ -8,6 +8,7 @@ public class SchoolController {
 	public void start() {
 		Scanner sc = new Scanner(System.in);
 		SchoolService schoolService = new SchoolService();
+		SchoolView schoolView = new SchoolView();
 		Student [] students = null;
 		
 		boolean check=true;
@@ -27,6 +28,7 @@ public class SchoolController {
 				break;
 
 			case 2:
+				schoolView.view(students);
 				break;
 				
 			case 3:
