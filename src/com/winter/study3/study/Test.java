@@ -8,7 +8,7 @@ public class Test {
 		System.out.println("T1 Method");
 		if(num%2==0) {
 			return ;
-			System.out.println();
+			
 		}
 		
 	}
