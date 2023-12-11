@@ -21,7 +21,7 @@ public class SchoolMain {
 		
 		
 		
-		System.out.println(st1.name);
+		//System.out.println(st1.name);
 		
 		
 		

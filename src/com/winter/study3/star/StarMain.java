@@ -3,24 +3,23 @@ package com.winter.study3.star;
 public class StarMain {
 
 	public static void main(String[] args) {
-		//fied
-		
+		//변수선언      = 객체 생성
+		//클래스명 변수명 = new 클래스명();
 		Marine marine = new Marine();
-		//marine.hp;
-		marine.gun=new Gun();
-		marine.gun.damage=50;
 		
-		System.out.println(marine.gun.damage);
+		//멤버 사용
+		//변수명.멤버변수명
+		//변수명.멤버메서드명();
+		marine.hp=50;
+		marine.move();
+		
+		Marine marine2 = new Marine();
+		
+		//marine2 = marine;
+		
+		System.out.println(marine2.hp);
 		
 		
-		Marine [] marines = new Marine[8];
-		
-		for(int i=0;i<marines.length;i++) {
-//			Marine m = new Marine();
-//			m.hp=50;
-			marines[i]=new Marine();
-			marines[i].hp=40;
-		}
 		
 
 	}
