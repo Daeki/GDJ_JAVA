@@ -11,13 +11,19 @@ public class TestMain {
 		test.t1();
 		
 		int n=10;
-		test.t2(n, 20);
+		int sum = test.t2(n, 20);
 		System.out.println(n);
 		
 		Human human = new Human();
 		human.age=20;
-		test.t3(human);//인자값
+		human = test.t3(human);//인자값
 		System.out.println(human.age);
+		
+		int [] ar = new int[3];
+		ar[0]=3;
+		ar[1]=2;
+		ar[2]=6;
+		ar = test.t4(ar);
 
 	}
 
