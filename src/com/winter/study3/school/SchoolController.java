@@ -32,6 +32,12 @@ public class SchoolController {
 				break;
 				
 			case 3:
+				Student s = schoolService.findByNum(students);
+				if(s != null) {
+					schoolView.view(s);
+				}else {
+					schoolView.view("학생이 없다");
+				}
 				break;
 			case 4:
 				break;
