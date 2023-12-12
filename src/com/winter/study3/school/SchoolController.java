@@ -40,6 +40,8 @@ public class SchoolController {
 				}
 				break;
 			case 4:
+				
+				students = schoolService.addStudent(students);
 				break;
 				
 			default:
