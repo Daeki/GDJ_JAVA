@@ -34,17 +34,25 @@ public class CardManager {
 		System.out.println("주소 입력");
 		card.setAddress(sc.next());
 		
-		//새로운 배열 생성 후 값 복사
-		Card [] newCards = new Card[cards.length+1];
+		//Card 배열이 null 체크
+		if(cards == null) {
+			Card [] newCards = new Card[1];
+			newCards[0]=card;
+			return newCards;
+		}else {
 		
-		for(int i=0;i<cards.length;i++) {
-			newCards[i]=cards[i];
+			//새로운 배열 생성 후 값 복사
+			Card [] newCards = new Card[cards.length+1];
+		
+			for(int i=0;i<cards.length;i++) {
+				newCards[i]=cards[i];
+			}
+		
+			//새로운 명함을 배열에 추가 후 리턴
+			newCards[cards.length]=card;
+		
+			return newCards;
 		}
-		
-		//새로운 명함을 배열에 추가 후 리턴
-		newCards[cards.length]=card;
-		
-		return newCards;
 		
 	}
 
