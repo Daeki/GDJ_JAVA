@@ -30,4 +30,14 @@ public class Magiction extends Character {
 		this.info();
 	}
 
+
+
+	@Override
+	public void attack() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
 }
