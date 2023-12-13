@@ -55,5 +55,37 @@ public class CardManager {
 		}
 		
 	}
+	
+	
+	public Card [] removeCard(Card [] cards) {
+		System.out.println("삭제할 번호 입력");
+		int num = sc.nextInt();
+		int idx=-1;
+		//삭제할 명함의 index 번호 찾기
+		for(int i=0;i<cards.length;i++) {
+			if(num==cards[i].getNum()) {
+				idx=i;
+				break;
+			}
+		}
+		
+		if(idx!=-1) {
+			Card [] newCards = new Card[cards.length-1];
+			int j=0;
+			for(int i=0;i<cards.length;i++) {
+				if(idx==i) {
+					continue;
+				}
+				newCards[j]=cards[i];
+				j++;
+			}
+			
+			return newCards;
+			
+		}else {
+			return cards;
+		}
+		
+	}
 
 }
