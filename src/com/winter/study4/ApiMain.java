@@ -3,21 +3,31 @@ package com.winter.study4;
 public class ApiMain {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println(String.CASE_INSENSITIVE_ORDER);
-		
-		
-		Object obj = new Object();
 		int a=10;
 		
-		//메서드 선언공식
-		//접근지정자 [그외지정자] 리턴타입 메서드명([매개변수선언])
-		//{}
+		//Integer it = new Integer(a);//deprecated
 		
-		//참조변수명.변수명
-		//참조변수명.메서드명()
-		boolean ch = obj.equals(obj);
-		System.out.println(ch);
+		Integer it = a;//auto Boxing
+		
+		a = it;        //auto UnBoxing
+		
+		double ab = 0.12333333;
+		
+		System.out.println(ab);
+		
+		Double abs = ab;//
+		
+		it = (int)3.12;
+		
+		System.out.println(abs.isInfinite());
+		
+		
+		String num1 ="3";
+		
+		int n = Integer.parseInt(num1);
+		
+		System.out.println(n+2);
+		
 
 	}
 
