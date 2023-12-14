@@ -56,7 +56,7 @@ public class Ex2Main {
 			if(temp>9) {
 				temp=2;
 			}
-			char c = jumin.charAt(i);
+			char c =  chs[i];//jumin.charAt(i);
 			int n = Integer.parseInt(String.valueOf(c));
 			sum=sum+n*temp;
 			temp++;
