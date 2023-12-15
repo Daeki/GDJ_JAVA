@@ -5,6 +5,9 @@ import java.util.Scanner;
 public class Ex2Main {
 
 	public static void main(String[] args) {
+		//FQDN
+		java.util.Random r;
+		String name;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("주민번호 입력");//991225-1234567
 		String jumin="990225-1234567";
