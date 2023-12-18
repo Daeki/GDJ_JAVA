@@ -86,6 +86,7 @@ public class StudentService {
 		System.out.println("학생 이름 입력");
 		String name = sc.next();
 		boolean result=false;
+
 		for(StudentDTO studentDTO:ar) {
 			if(studentDTO.getName().equals(name)) {
 				ar.remove(studentDTO);
