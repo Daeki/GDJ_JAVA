@@ -5,8 +5,11 @@ import java.util.ArrayList;
 public class Test {
 	
 	public void t1(ArrayList<Integer> ar) {
-		ar.add(10);
-		new NullPointerException();
+		System.out.println(ar);
+		System.out.println(ar.get(0));
+		//nullpointer
+		String str=ar.get(0).toString();
+		
 	}
 
 }

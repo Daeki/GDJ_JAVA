@@ -10,7 +10,7 @@ public class Study5Main {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("숫자 입력");
 		try {
-			int num=sc.nextInt();
+			System.out.println(sc.nextInt());
 			//throw new InputMismatchException();
 		
 			System.out.println("정상 진행");
@@ -26,7 +26,8 @@ public class Study5Main {
 			arr[3]=10;
 		//new ArrayIndexOutOfBoundsException();
 		}catch (InputMismatchException e) {
-			
+			System.out.println(e.getMessage());
+			e.printStackTrace();
 			// TODO: handle exception
 		}catch (ArrayIndexOutOfBoundsException e) {
 			// TODO: handle exception
@@ -42,11 +43,14 @@ public class Study5Main {
 		}
 		
 		int a =10;
-		a = a/0;
+		int num=0;
+		if(num!=0) {
+			a = a/num;
+		}
 		new ArithmeticException();
 		
 		ArrayList<Integer> ar=null;
-		t.t1(ar);
+		//t.t1(ar);
 
 		System.out.println("종료 합니다.");
 	}
