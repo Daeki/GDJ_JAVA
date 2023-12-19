@@ -46,6 +46,10 @@ public class WeatherDAO {
 			
 		}
 		
+		br.close();
+		fr.close();
+		
+		
 		return ar;
 		
 	}
