@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
@@ -34,11 +35,14 @@ public class WeatherDAO {
 		ArrayList<WeatherDTO> ar = new ArrayList<>();
 		File file = new File("c:\\study\\weather");
 		String [] names = file.list();
+		String [] test = {"3.txt", "2.txt", "4.txt"};
 		//long [] name=new long [names.length];
 		//for, while
 		long max=0;
 		
-		for(String n:names) {
+		List<String> a = Arrays.asList(test);
+		
+		for(String n: test) {
 			System.out.println(n);
 		}
 		
