@@ -3,12 +3,20 @@ package com.winter.study6.ex1;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class WeatherDAO {
+	private static int count;
+	
+	static {
+		WeatherDAO.count=0;
+	}
 	//DAO : Data Access Object
 	
 	//getWeathers
@@ -21,36 +29,63 @@ public class WeatherDAO {
 	//5. List를 return
 	
 	public ArrayList<WeatherDTO> getWeathers() throws Exception {
+		
+		
 		ArrayList<WeatherDTO> ar = new ArrayList<>();
-		File file = new File("C:\\study\\weather.txt");
-		FileReader fr = new FileReader(file);
-		BufferedReader br = new BufferedReader(fr);
-		br.readLine();
-		while(true) {
-			String s = br.readLine();
-			if(s ==null) {
-				break;
-			}
-			
-			//파싱 - split, StringTokenizer
-			
-			System.out.println(s);
-			StringTokenizer st = new StringTokenizer(s, "-");
-			//서울-12-맑음-60
-			WeatherDTO weatherDTO = new WeatherDTO();
-			
-			weatherDTO.setCity(st.nextToken());
-			weatherDTO.setGion(Integer.parseInt(st.nextToken()));
-			weatherDTO.setInfo(st.nextToken());
-			weatherDTO.setHum(Integer.parseInt(st.nextToken()));
-			
-			ar.add(weatherDTO);
-			
+		File file = new File("c:\\study\\weather");
+		String [] names = file.list();
+		//long [] name=new long [names.length];
+		//for, while
+		long max=0;
+		
+		for(String n:names) {
+			System.out.println(n);
 		}
 		
-		br.close();
-		fr.close();
+		for(int i=0;i<names.length;i++) {
+			//split, StringTo, subString, indexOf, lastIndexOf
+//			String [] r = names[i].split(".");
+//			name[i]=r[0];
+//			StringTokenizer st = new StringTokenizer(names[i], ".");
+//			name[i]=st.nextToken();
+			long n= Long.parseLong(names[i].substring(0, names[i].lastIndexOf(".")));
+			max=Math.max(max, n);
+		}
 		
+		
+
+		
+//	
+//		
+//		file = new File(file, max+".txt");
+//		FileReader fr = new FileReader(file);
+//		BufferedReader br = new BufferedReader(fr);
+//		br.readLine();
+//		while(true) {
+//			String s = br.readLine();
+//			if(s ==null) {
+//				break;
+//			}
+//			
+//			//파싱 - split, StringTokenizer
+//			
+//			System.out.println(s);
+//			StringTokenizer st = new StringTokenizer(s, "-");
+//			//서울-12-맑음-60
+//			WeatherDTO weatherDTO = new WeatherDTO();
+//			
+//			weatherDTO.setCity(st.nextToken());
+//			weatherDTO.setGion(Integer.parseInt(st.nextToken()));
+//			weatherDTO.setInfo(st.nextToken());
+//			weatherDTO.setHum(Integer.parseInt(st.nextToken()));
+//			
+//			ar.add(weatherDTO);
+//			
+//		}
+//		
+//		br.close();
+//		fr.close();
+//		
 		
 		return ar;
 		
@@ -100,12 +135,50 @@ public class WeatherDAO {
 	}
 	
 	//저장
-	public void save(List<WeatherDTO> ar) {
+	public void save(List<WeatherDTO> ar) throws Exception {
 		//1. 파일에 작성
 		//파일명은 save.txt
 		//##날씨정보
 		//도시명-기온-정보-습도
 		//도시명-기온-정보-습도
+		//20231220+count
+		//202312202
+		WeatherDAO.count++;
+		
+		Calendar ca = Calendar.getInstance();
+		
+//		int y=ca.get(Calendar.YEAR);
+//		int m=ca.get(Calendar.MONTH)+1;
+//		int d=ca.get(Calendar.DATE);
+//		//""+y
+//		String fileName=String.valueOf(y)+m+d+WeatherDAO.count;
+//		SimpleDateFormat sd = new SimpleDateFormat("yyyyMMdd");
+//		String fileName = sd.format(ca.getTime());
+//		fileName = fileName+WeatherDAO.count+".txt";
+		String fileName=ca.getTimeInMillis()+".txt";
+		File file = new File("C:\\study\\weather");
+		file = new File(file, fileName);
+		FileWriter fw = new FileWriter(file);
+		fw.write("##날씨정보\r");
+		fw.flush();
+		
+		for(WeatherDTO weatherDTO:ar) {
+//			String s = weatherDTO.getCity();
+//			s=s+"-"+weatherDTO.getGion();
+//			s=s+"-"+weatherDTO.getInfo();
+//			s=s+"-"+weatherDTO.getHum()+"\r";
+//			fw.write(s);
+//			fw.flush();
+			
+			fw.write(weatherDTO.getCity()+"-");
+			fw.write(weatherDTO.getGion()+"-");
+			fw.write(weatherDTO.getInfo()+"-");
+			fw.write(weatherDTO.getHum()+"\r");
+			fw.flush();
+			
+		}
+		//fw.write("도시명-기온-정보-습도\r");
+		fw.close();
 		
 	}
 	
