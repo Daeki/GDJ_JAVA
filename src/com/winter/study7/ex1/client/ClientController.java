@@ -48,7 +48,10 @@ public class ClientController {
 		
 		//1. 날씨정보출력
 		//2. 날씨정보검색
-		//3. 프로그램종료
+		//3. 날씨정보추가
+		//4. 날씨정보삭제
+		//5. 날씨정보저장
+		//6. 프로그램종료
 		boolean check=true;
 		List<WeatherDTO> ar = new ArrayList<>();
 		while(check) {
@@ -78,6 +81,8 @@ public class ClientController {
 				
 			}else {
 				System.out.println("종료");
+				bw.write(select+"\n\r");
+				bw.flush();
 				break;
 			}
 			
